@@ -1,11 +1,5 @@
-<?php
-    include '../model/orders_db.php';
-    require('../model/database.php');
 
-    $results = select_orders_by_id_desc();
-?>
-<div class="container-fluid mt-5" >
-
+<div class="container-fluid mt-5" id="currentOrders">
     <div class="topbar mb-5">
         <div class="text-centered" id="alert-box"></div>
         <h2>Lista zgłoszeń w realizacji</h2>
@@ -27,19 +21,19 @@
             </thead>
             <tbody>
                 <?php
-                    foreach($results as $result){
+                    foreach($orders_by_id_desc as $order_data){
                     ?>
                     <tr>
                         <?php
-                    echo "<td>".$result['id']."</td>";
-                    echo "<td>".$result['type']."</td>";
-                    echo "<td>".$result['comment']."</td>";
-                    echo "<td>".$result['user']."</td>";
-                    echo "<td>".$result['status']."</td>";
-                    echo "<td>".$result['date_c']."</td>";
+                    echo "<td>".$order_data['id']."</td>";
+                    echo "<td>".$order_data['type']."</td>";
+                    echo "<td>".$order_data['comment']."</td>";
+                    echo "<td>".$order_data['user']."</td>";
+                    echo "<td>".$order_data['status']."</td>";
+                    echo "<td>".$order_data['date_c']."</td>";
                     ?>
-                    <td><a href="index.php?orderId=<?php echo $result['id']; ?>" class="btn btn-warning">Edytuj</a></td>
-                    <td><a href="index.php?orderId=<?php echo $result['id']; ?>" class="btn btn-danger">Usuń</a></td>
+                    <td><a href="index.php?orderId=<?php echo $order_data['id']; ?>" class="btn btn-warning">Edytuj</a></td>
+                    <td><a href="index.php?orderId=<?php echo $order_data['id']; ?>" class="btn btn-danger">Usuń</a></td>
                     </tr>
                     <?php
                 }

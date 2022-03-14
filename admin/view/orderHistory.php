@@ -1,16 +1,4 @@
-<?php
-    $host = "localhost";
-    $login = "root";
-    $pass = "root";
-    $db = "serwis_test";
-
-    $conn = mysqli_connect($host,$login,$pass,$db);
-    if(isset($_GET['logOut'])){
-        unset($_COOKIE['login']);
-    }
-?>
-<div class="container-fluid mt-5" >
-
+<div class="container-fluid mt-5" id="orderHistory">
     <div class="topbar mb-5">
         <h2>Wszystkie zgłoszenia</h2>
         <!-- <ul style="float: right; clear: both">
@@ -34,15 +22,11 @@
                 $sql = "SELECT * FROM orders WHERE status LIKE 'zakonczona'";
                 $query = mysqli_query($conn, $sql);
                 if(!empty($query)){
-                    ?>
+                ?>
                     
-                    <h1 style="position: absolute;
-                    padding-left: 280px;
-                    padding-top: 100px
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);">Historia zakończonych zamówień jest pusta</h1>
+                    <h1 style="position: absolute; padding-left: 280px; padding-top: 100px; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
+                    Historia zakończonych zamówień jest pusta
+                    </h1>
                     <?php
                 }else{
 
@@ -57,8 +41,8 @@
                     echo "<td>".$result['status']."</td>";
                     echo "<td>".$result['date_c']."</td>";
                     ?>
-                    <td><a href="index.php?orderId=<?php $result['id']; ?>" class="btn btn-warning">Edytuj</a></td>
-                    <td><a href="index.php?orderId=<?php $result['id']; ?>" class="btn btn-danger">Usuń</a></td>
+                    <td><a href="#" class="btn btn-warning">Edytuj</a></td>
+                    <td><a href="#" onclick="showOrderPreview()" class="btn btn-danger">Usuń</a></td>
                 </tr>
                 <?php
                     }

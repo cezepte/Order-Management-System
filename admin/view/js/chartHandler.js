@@ -8,7 +8,7 @@ function chartLoad(income, outcome) {
             backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 99, 132)'],
             hoverOffset: 4
         }]
-    };
+    }
     const chartNewChartFinance = new Chart(chartFinanceId, {
         type: 'doughnut',
         data: dataFinance,
@@ -32,7 +32,7 @@ function chartLoad(income, outcome) {
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
         }]
-    };
+    }
     const chartNewChartOrderCount = new Chart(chartOrderCountId, {
         type: 'line',
         data: dataOrderCount,
@@ -53,5 +53,5 @@ function chartLoad(income, outcome) {
                 },
             },
         },
-    });
+    })
 }

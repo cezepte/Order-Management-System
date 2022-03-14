@@ -1,16 +1,6 @@
-<?php
-    include '../model/database.php';
-    include '../model/finance_db.php';
-
-    $income = 0;
-    $outcome = 0;
-    $result = show_income();
-    $income = $result['netto_price'] * ($result['vat'] * 0.01);
-    
-?>
-<div class="container-fluid bg-light" id="mainContainer">
+<div class="container-fluid bg-light" id="home" onload="chartLoad(<?php echo $income; ?>, <?php echo $outcome;?>);">
     <h1 style="text-align: center">JK Management - sprawy system zarządzania zgłoszeniami</h1>
-    <div class="row" onload="chartLoad(<?php echo $income.','.$outcome; ?>)">
+    <div class="row">
         <div class="col-md border rounded-3 shadow bg-white m-4 p-5 align-items-start">
             <h3 class="text-center mb-3">Twoje finanse</h3>
             <div class="canvas-button-group btn-group mb-3 border d-flex justify-content-center" role="group">
@@ -42,3 +32,6 @@
         </div>
     </div>
 </div>
+<script>
+    chartLoad(<?php echo $income; ?>, <?php echo $outcome;?>);
+</script>

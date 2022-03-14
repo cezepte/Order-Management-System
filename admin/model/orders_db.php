@@ -1,23 +1,24 @@
 <?php
-    function select_orders_by_id_desc(){
+class Orders{
+    public function select_orders_by_id_desc(){
         global $db;
         $query = "SELECT * FROM orders ORDER BY id DESC";
         $statement = $db->prepare($query);
         $statement->execute();
-        $results = $statement->fetchAll();
+        $results_orders_by_id_desc = $statement->fetchAll();
         $statement->closeCursor();
-        return $results;
+        return $results_orders_by_id_desc;
     }
-    function select_orders_last_3(){
+    public function select_orders_last_3(){
         global $db;
         $query = "SELECT * FROM orders ORDER BY id DESC ";
         $statement = $db->prepare($query);
         $statement->execute();
-        $results = $statement->fetchAll();
+        $results_orders_last_3 = $statement->fetchAll();
         $statement->closeCursor();
-        return $results;
+        return $results_orders_last_3;
     }
-    function insert_order($type,$comment,$user,$price,$vat,$status){
+    public function insert_order($type,$comment,$user,$price,$vat,$status){
         global $db;
         $count = 0;
         $query = "INSERT INTO orders(type,comment,user,netto_price,vat,status) VALUES (:type,:comment,:user,:price,:vat,:status)";
@@ -33,9 +34,9 @@
             $count = $statement->rowCount();
         };
         $statement->closeCursor();
-        return $count;
+        return $count_insert_order;
     }
-    function delete_order($orderId){
+    public function delete_order($orderId){
         global $db;
         $count = 0;
         $query = "DELETE FROM orders WHERE id = ':id'";
@@ -45,5 +46,15 @@
             $count = $statement->rowCount();
         }
         $statement->closeCursor();
-        return $count;
+        return $count_delete_order;
     }
+    public function show_order_details($orderId){
+        global $db;
+        $query = "SELECT * FROM orders WHERE id = $orderId";
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $results_orders_by_id_desc = $statement->fetchAll();
+        $statement->closeCursor();
+        return $results_order_details;
+    }
+}

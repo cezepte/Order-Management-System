@@ -1,19 +1,5 @@
-<?php
-    $host = "localhost";
-    $login = "root";
-    $pass = "root";
-    $db = "serwis_test";
-
-    $conn = mysqli_connect($host,$login,$pass,$db);
-
-    $order = $_GET['orderId'];
-
-    $sql = "SELECT * FROM orders WHERE id LIKE $order";
-    $query = mysqli_query($conn, $sql);
-    ?>
-        
+<div class="container-fluid" id="orderPreview">
     <table class="table">
-        
     <?php
     foreach($query as $result){
         echo "<tr><td><strong>ID zgłoszenia</strong></td><td>".$result['id']."</td></tr>";
@@ -24,4 +10,5 @@
         echo "<tr><td><strong>Data</strong></td><td>".$result['date_c']."</td></tr>";
     }
     ?>
-    </table>
+    </table>   
+</div>

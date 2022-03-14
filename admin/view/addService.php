@@ -6,10 +6,9 @@ $db = "serwis_test";
 
 $conn = mysqli_connect($host,$login,$pass,$db);
 ?>
-<div class="container-fluid w-100">
+<div class="container-fluid w-100" id="addService">
     <div class="row">
         <div class="col-md-3"></div>
-
         <div class="col-md-6">
             <div class="content-box m-0 border shadow rounded bg-white text-center p-5 mt-5 w-100">
                 <h1>Dodaj usługę</h1>

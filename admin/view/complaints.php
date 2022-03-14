@@ -1,23 +1,8 @@
-<?php
-    $host = "localhost";
-    $login = "root";
-    $pass = "root";
-    $db = "serwis_test";
-
-    $conn = mysqli_connect($host,$login,$pass,$db);
-    if(isset($_GET['logOut'])){
-        unset($_COOKIE['login']);
-    }
-    include 'alerts.php';
-?>
-<div class="container-fluid mt-5" >
+<div class="container-fluid mt-5"  id="complaints">
 
     <div class="topbar mb-5">
         <div class="text-centered" id="alert-box"></div>
-        <h2>Lista zgłoszeń w realizacji</h2>
-        <ul style="float: right; clear: both">
-            <li><button class="btn btn-primary" onclick="$('.content').load('addOrder.php')">Dodaj nowe zlecenie</button></li>
-        </ul>
+        <h2>Lista reklamacji</h2>
     </div>
     <div class="orders-table">
         <table class="table">
@@ -33,8 +18,6 @@
             </thead>
             <tbody>
                 <?php
-                $sql = "SELECT * FROM complaints";
-                $query = mysqli_query($conn, $sql);
                 foreach($query as $result){
                     ?>
                     <tr>

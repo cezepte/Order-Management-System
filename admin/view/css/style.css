@@ -98,10 +98,10 @@ nav ul li:hover{
     float:right;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    transition: all 0.5s ease-in-out;
 }
 .toggle button:hover{
     padding-right: 60px;
-    transition: all 0.5s ease-in-out;
 }
 .topnav{
     position:fixed;
@@ -114,11 +114,11 @@ nav ul li:hover{
     display: inline-block;
 }
 
-.content #mainContainer .row{
+.content #home .row{
     margin: 0 auto;
     justify-content: center;
 }
-.content #mainContainer .row .col-md{
+.content #home .row .col-md{
     max-width: 46%;
 }
 .form-check-input[type=checkbox]:indeterminate{
@@ -134,3 +134,4 @@ nav ul li:hover{
     outline: 0;
     box-shadow: 0 0 0 0.25rem #198754a8;
 }
+

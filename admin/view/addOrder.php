@@ -1,8 +1,17 @@
-
-<div class="container-fluid w-100">
+<?php
+    if(isset($_POST['action'])){
+        $type = $_POST['type'];
+        $comment = $_POST['comment'];
+        $user = $_POST['user'];
+        $price = $_POST['price'];
+        $vat = $_POST['vat'];
+        $status = $_POST['status'];
+        insert_order($type,$comment,$user,$price,$vat,$status);
+    }
+?>
+<div class="container-fluid w-100" id="addOrder">
     <div class="row">
         <div class="col-md-3"></div>
-
         <div class="col-md-6">
             <div class="content-box m-0 border rounded bg-white shadow text-center p-5 mt-5 w-100">
                 <h1>Dodaj zgłoszenie</h1>

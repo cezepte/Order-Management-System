@@ -1,13 +1,5 @@
-<?php
-    include '../model/database.php';
-    include '../model/clients_db.php';
-
-    $results = select_all_clients_by_lastname();
-?>
-<div class="container-fluid">
-    <div class="row">
-        <h1 class="text-center">Baza klientów</h1>
-    </div>
+<div class="container-fluid" id="clients">
+    <h1 class="text-center">Baza klientów</h1>
     <div class="row">
         <!-- Table of all users -->
         <div class="col-md-8 bg-white shadow p-3 m-4" style="margin-left: 10px; float: left">
@@ -24,13 +16,13 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach($results as $result){
-                            echo "<tr class='activable'><td>".$result['id']."</td>";
-                            echo "<td>".$result['firstName']."</td>";
-                            echo "<td>".$result['lastName']."</td>";
-                            echo "<td>".$result['company']."</td>";
-                            echo "<td>".$result['tel_number']."</td>";
-                            echo "<td>".$result['email']."</td></tr>";
+                        foreach($clients_by_lastname as $client_data){
+                            echo "<tr class='activable'><td>".$client_data['id']."</td>";
+                            echo "<td>".$client_data['firstName']."</td>";
+                            echo "<td>".$client_data['lastName']."</td>";
+                            echo "<td>".$client_data['company']."</td>";
+                            echo "<td>".$client_data['tel_number']."</td>";
+                            echo "<td>".$client_data['email']."</td></tr>";
                         }
                     ?>
                 </tbody>
