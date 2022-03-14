@@ -10,6 +10,7 @@
     include 'model/orders_db.php';
     $orders = new Orders();
     $orders_by_id_desc = $orders->select_orders_by_id_desc();
+    $orders_last_3 = $orders->select_orders_last_3();
     include 'model/clients_db.php';
     $clients = new Clients();
     $clients_by_lastname = $clients->select_all_clients_by_lastname();

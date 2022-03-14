@@ -16,8 +16,8 @@ $(document).ready(function () {
             };
         });
     });
-    $('#currentOrders, #addOrder, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory').hide();
-    $('#currentOrdersToggle, #addOrderToggle, #addServiceToggle, #homeToggle, #complaintsToggle, #parcelsToggle, #clientsToggle, #allServicesToggle, #usersToggle, #settingsToggle, #companyDataToggle, #orderHistoryToggle').click(function () {
+    $('#currentOrders, #addOrder, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory, #addInvoices, #costInvoices, #allInvoices, #addClient, #addContractor, #contractors').hide();
+    $('#currentOrdersToggle, #addOrderToggle, #addServiceToggle, #homeToggle, #complaintsToggle, #parcelsToggle, #clientsToggle, #allServicesToggle, #usersToggle, #settingsToggle, #companyDataToggle, #orderHistoryToggle, #addInvoiceToggle, #costInvoicesToggle, #allInvoicesToggle, #addClientToggle, #addContractorToggle, #contractorsToggle').click(function () {
         $("#home, #currentOrders, #addOrder, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory").hide();
         let elementId = $(this).attr('id').replace("Toggle", "");
         $('#' + elementId).show();

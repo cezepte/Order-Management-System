@@ -22,12 +22,34 @@
     </div>
     <div class="row">
         <div class="col shadow border rounded-3 bg-white m-4 p-5">
+            <h5>Ostatnie zgłosznia</h5>
             <table class="table">
                 <thead>
                     <tr>
-                        <td colspan="3" class="text-center">Szybkie akcje</td>
+                        <td style="width: 15%">Typ</td>
+                        <td style="width: 50%">Komentarz</td>
+                        <td style="width: 20%">Klient</td>
+                        <td style="width: 15%">Data</td>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php
+                        foreach($orders_last_3 as $order_data){
+                        ?>
+                        <tr>
+                            <?php
+                        echo "<td>".$order_data['type']."</td>";
+                        echo "<td>".$order_data['comment']."</td>";
+                        echo "<td>".$order_data['user']."</td>";
+                        echo "<td>".$order_data['date_c']."</td>";
+                        ?>
+                        <td><a href="index.php?orderId=<?php echo $order_data['id']; ?>" class="btn btn-warning">Edytuj</a></td>
+                        <td><a href="index.php?orderId=<?php echo $order_data['id']; ?>" class="btn btn-danger">Usuń</a></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </tbody>
             </table>
         </div>
     </div>

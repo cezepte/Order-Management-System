@@ -59,13 +59,12 @@ nav ul li:hover{
     position: fixed;
     z-index: 202;
     width: 280px;
-    /* padding-top: 65px; */
 }
 .content{
     float:left;
     padding-left: 280px;
     width: 100%;
-    padding-top: 70px;
+    padding-top: 85px;
 }
 .btn-toggle:hover{
     cursor: pointer;
@@ -95,7 +94,7 @@ nav ul li:hover{
     margin-left: 90%;
 }
 .toggle button{
-    float:right;
+    float: right;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     transition: all 0.5s ease-in-out;
@@ -134,4 +133,6 @@ nav ul li:hover{
     outline: 0;
     box-shadow: 0 0 0 0.25rem #198754a8;
 }
-
+a.activable:hover, .btn-toggle:hover{
+    background-color: rgb(211, 210, 210);
+}
