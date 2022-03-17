@@ -55,7 +55,7 @@ nav ul li:hover{
     transition: box-shadow 0.3s ease-in-out;
 }
 .sidenav{
-    float:left;
+    float: left;
     position: fixed;
     z-index: 202;
     width: 280px;
@@ -135,4 +135,15 @@ nav ul li:hover{
 }
 a.activable:hover, .btn-toggle:hover{
     background-color: rgb(211, 210, 210);
+}
+.client-data-card{
+    display:none;
+}
+.client-info-table td{
+    text-align: end;
+    vertical-align: text-top;
+}
+.userPreview{
+    margin-right: 0px; 
+    float: right;
 }

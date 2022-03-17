@@ -3,26 +3,25 @@
     <div class="row">
         <!-- Table of all users -->
         <div class="col-md-8 bg-white shadow p-3 m-4" style="margin-left: 10px; float: left">
+        Sortuj 
             <table class="table">
                 <thead>
                     <tr>
-                        <td style="width: 10%">ID</td>
+                        <td style="width: 30%">Nazwisko</td>
                         <td style="width: 15%">Imię</td>
-                        <td style="width: 20%">Nazwisko</td>
-                        <td style="width: 20%">Firma</td>
-                        <td style="width: 15%">Nr tel</td>
-                        <td style="width: 20%">E-mail</td>
+                        <td style="width: 45%">Firma</td>
+                        <td style="width: 10%">Akcje</td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         foreach($clients_by_lastname as $client_data){
-                            echo "<tr class='activable'><td>".$client_data['id']."</td>";
+                            echo "<tr><td>".$client_data['lastName']."</td>";
                             echo "<td>".$client_data['firstName']."</td>";
-                            echo "<td>".$client_data['lastName']."</td>";
                             echo "<td>".$client_data['company']."</td>";
-                            echo "<td>".$client_data['tel_number']."</td>";
-                            echo "<td>".$client_data['email']."</td></tr>";
+                    ?>
+                        <td><button class="btn btn-primary client" onclick="$(this).click(function () {$.removeCookie('userId');let userId = $(this).attr('id').replace('client_', '');$.cookie('userId', userId);});" id="client_<?php echo $client_data['client_id']; ?>">Szczegóły</button></td></tr>
+                    <?php
                         }
                     ?>
                 </tbody>
@@ -30,27 +29,19 @@
         </div>
         <!-- User preview -->
         <div class="col-md-1" style="width: fit-content"></div>
-        <div class="col-md-3" style="margin-right: 0px; float: right">
-            <div class="card vh-25 bg-white shadow mt-4" style="margin-right: 0px;">
-                <img src="" alt="" class="card-img-top" style="background-color: grey; width: max-content">
-                <div class="card-body">
-                    <h5 class="card-title placeholder-glow">
-                        <span class="placeholder col-6"></span>
-                    </h5>
-                    <p class="card-text placeholder-glow">
-                        <span class="placeholder col-7"></span>
-                        <span class="placeholder col-4"></span>
-                        <span class="placeholder col-4"></span>
-                        <span class="placeholder col-6"></span>
-                        <span class="placeholder col-8"></span>
-                    </p>
-                    <div class="justify-content-center mt-5">
-
-                        <a href="#" tabindex="-1" class="btn btn-success disabled placeholder col-5"></a>
-                        <a href="#" tabindex="-1" class="btn btn-danger disabled placeholder col-5"></a>
+        <div class="col-md-3 userPreview">
+            <div class="card bg-white shadow mt-4" id="client-data-card" style="margin-right: 0px;">
+                    <img src="" alt="" class="card-img-top" style="background-color: grey; width: max-content">
+                    <div class="card-body">
+                        <p class="card-text client-text placeholder-glow">
+                            <table class="client-info-table"></table>
+                        </p>
+                        <div class="actions justify-content-center mt-5">
+                            <a href="tel:" tabindex="-1" id="callClient" class="btn btn-success col-5"> Zadzwoń </a>
+                            <a href="#" tabindex="-1" id="deleteUser" class="btn btn-danger col-5"> Usuń </a>
+                        </div>
+    
                     </div>
-
-                </div>
             </div>
         </div>
     </div>

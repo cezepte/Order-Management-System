@@ -1,14 +1,4 @@
-<?php
-    if(isset($_POST['action'])){
-        $type = $_POST['type'];
-        $comment = $_POST['comment'];
-        $user = $_POST['user'];
-        $price = $_POST['price'];
-        $vat = $_POST['vat'];
-        $status = $_POST['status'];
-        insert_order($type,$comment,$user,$price,$vat,$status);
-    }
-?>
+
 <div class="container-fluid w-100" id="addOrder">
     <div class="row">
         <div class="col-md-3"></div>
@@ -16,7 +6,7 @@
             <div class="content-box m-0 border rounded bg-white shadow text-center p-5 mt-5 w-100">
                 <h1>Dodaj zgłoszenie</h1>
                 <form action="#" method="post">
-                    <input type="hidden" name="action" value="insert">
+                    <input type="hidden" name="insertOrder" value="1">
                     <select class="form-select form-select-lg mt-5" name="type">
                         <option selected value="naprawa">Naprawa</option>
                         <option value="instalacja">Instalacja</option>
@@ -28,10 +18,14 @@
                         <input type="text" name="comment" id="comment" placeholder="Komentarz" class="form-control" required>
                         <label for="comment">Komentarz</label>
                     </div>
-                    <div class="form-floating mt-2">
-                        <input type="text" name="user" id="user" placeholder="Klient" class="form-control" required>
-                        <label for="user">Klient</label>
-                    </div>
+                    <select class="form-select form-select-lg mt-2" name="clients_id">
+                        <option selected>Wybierz klienta...</option>
+                        <?php
+                        foreach($clients_by_lastname as $client_data){
+                            echo "<option value=".$client_data['client_id'].">".$client_data['lastName']." ".$client_data['firstName']."</option>";
+                        }
+                        ?>
+                    </select>
                     <div class="form-floating mt-2">
                         <input type="number" name="price" id="price" placeholder="Cena netto" class="form-control" required>
                         <label for="price">Cena netto</label>
@@ -41,6 +35,10 @@
                         <option value="8">VAT 8%</option>
                         <option value="5">VAT 5%</option>
                         <option value="0">VAT 0%</option>
+                    </select>
+                    <select name="payed" id="" class="form-select form-select-lg mt-2">
+                        <option selected value="0">niezapłacone</option>
+                        <option value="1">zapłacone</option>
                     </select>
                     <select class="form-select form-select-lg mt-2" name="status">
                         <option selected value="przyjeta">Przyjęta</option>

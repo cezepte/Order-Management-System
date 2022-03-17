@@ -40,7 +40,7 @@
                             <?php
                         echo "<td>".$order_data['type']."</td>";
                         echo "<td>".$order_data['comment']."</td>";
-                        echo "<td>".$order_data['user']."</td>";
+                        echo "<td>".$order_data['lastName']." ".$order_data['firstName']."</td>";
                         echo "<td>".$order_data['date_c']."</td>";
                         ?>
                         <td><a href="index.php?orderId=<?php echo $order_data['id']; ?>" class="btn btn-warning">Edytuj</a></td>

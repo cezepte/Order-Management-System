@@ -37,7 +37,7 @@
                     echo "<td>".$result['id']."</td>";
                     echo "<td>".$result['type']."</td>";
                     echo "<td>".$result['comment']."</td>";
-                    echo "<td>".$result['user']."</td>";
+                    echo "<td>".$order_data['lastName']." ".$order_data['firstName']."</td>";
                     echo "<td>".$result['status']."</td>";
                     echo "<td>".$result['date_c']."</td>";
                     ?>

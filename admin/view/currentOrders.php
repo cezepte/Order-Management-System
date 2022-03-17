@@ -11,10 +11,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <td style="width: 5%">ID</td>
                     <td style="width: 10%">Typ</td>
-                    <td style="width: 50%">Komentarz</td>
-                    <td style="width: 10%">Klient</td>
+                    <td style="width: 45%">Komentarz</td>
+                    <td style="width: 20%">Klient</td>
                     <td style="width: 10%">Status</td>
                     <td style="width: 15%">Data</td>
                 </tr>
@@ -25,10 +24,9 @@
                     ?>
                     <tr>
                         <?php
-                    echo "<td>".$order_data['id']."</td>";
                     echo "<td>".$order_data['type']."</td>";
                     echo "<td>".$order_data['comment']."</td>";
-                    echo "<td>".$order_data['user']."</td>";
+                    echo "<td>".$order_data['lastName']." ".$order_data['firstName']."</td>";
                     echo "<td>".$order_data['status']."</td>";
                     echo "<td>".$order_data['date_c']."</td>";
                     ?>
