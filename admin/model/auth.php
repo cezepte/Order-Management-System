@@ -1,16 +1,21 @@
 <?php
-function authentication($login,$pass){
+    $login = $_POST['login'];
+    $pass = $_POST['pass'];
+    require ('database.php');
     global $db;
-    $logged = 0;
-    $query = "SELECT username,password FROM users WHERE username=':username' && role='admin'";
+    $query = "SELECT * FROM users WHERE username = :username";
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $login);
     $statement->execute();
     $result = $statement->fetchAll();
-    if($result['username']==$login && $result['password']==$pass){
-        $logged = 1;
-        return $logged;
-    }else {
-        return $logged;
+    $statement->closeCursor();
+    foreach($result as $userData){
+        $userPass = $userData['password'];
     }
-}
+    var_dump($result);
+    if($userPass == $pass){
+        setcookie('login',$login,0,'/','localhost', false, false);
+        header('Location: ../index.php');
+    }else {
+        header('Location: ../index.php');
+    }

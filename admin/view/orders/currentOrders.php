@@ -1,11 +1,15 @@
 
 <div class="container-fluid mt-5" id="currentOrders">
     <div class="topbar mb-5">
+    
         <div class="text-centered" id="alert-box"></div>
         <h2>Lista zgłoszeń w realizacji</h2>
         <ul style="float: right; clear: both">
             <li><button class="btn btn-primary" onclick="$('.content').load('addOrder.php')">Dodaj nowe zlecenie</button></li>
         </ul>
+    </div>
+    <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
+        <div role="alert" aria-live="assertive" aria-atomic="true"> </div>
     </div>
     <div class="orders-table">
         <table class="table">
@@ -23,15 +27,15 @@
                     foreach($orders_by_id_desc as $order_data){
                     ?>
                     <tr>
-                        <?php
-                    echo "<td>".$order_data['type']."</td>";
+                        <?php  
+                    echo "<td>".$order_data['name']."</td>";
                     echo "<td>".$order_data['comment']."</td>";
-                    echo "<td>".$order_data['lastName']." ".$order_data['firstName']."</td>";
+                    echo "<td>".$order_data['CLIENT']."</td>";
                     echo "<td>".$order_data['status']."</td>";
                     echo "<td>".$order_data['date_c']."</td>";
                     ?>
-                    <td><a href="index.php?orderId=<?php echo $order_data['id']; ?>" class="btn btn-warning">Edytuj</a></td>
-                    <td><a href="index.php?orderId=<?php echo $order_data['id']; ?>" class="btn btn-danger">Usuń</a></td>
+                    <td><a href="#" onclick="orderPreview(<?php echo $order_data['id']; ?>)" class="btn btn-warning">Edytuj</a></td>
+                    <td><a href="#" onclick="orderDelete(<?php echo $order_data['id']; ?>)" class="btn btn-danger">Usuń</a></td>
                     </tr>
                     <?php
                 }

@@ -1,5 +1,6 @@
 <?php
-    function select_all_services(){
+class Services{
+    public function select_all_services(){
         global $db;
         $query = "SELECT * FROM services";
         $statement = $db->prepare($query);
@@ -7,7 +8,7 @@
         $results_select_all_services = $statement->fetchAll();
         return $results_select_all_services;
     }
-    function insert_new_service($service_name,$service_comment,$service_vat){
+    public function insert_new_service($service_name,$service_comment,$service_vat){
         global $db;
         $count = 0;
         $query = "INSERT INTO services(name,comment,vat) VALUES (':name',':comment',':vat')";
@@ -20,3 +21,4 @@
         }
         return $count;
     }
+}

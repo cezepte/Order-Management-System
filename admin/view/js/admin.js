@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function () {
     $('.activable').click(function () {
         $('a.activable').removeClass('active');
@@ -16,16 +17,39 @@ $(document).ready(function () {
             };
         });
     });
-    $('#currentOrders, #addOrder, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory, #addInvoices, #costInvoices, #allInvoices, #addClient, #addContractor, #contractors').hide();
+    $('#currentOrders, #addOrder, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory, #addInvoices, #costInvoices, #allInvoices, #addClient, #addContractor, #contractors, #previewOrder').hide();
     $('#currentOrdersToggle, #addOrderToggle, #addServiceToggle, #homeToggle, #complaintsToggle, #parcelsToggle, #clientsToggle, #allServicesToggle, #usersToggle, #settingsToggle, #companyDataToggle, #orderHistoryToggle, #addInvoiceToggle, #costInvoicesToggle, #allInvoicesToggle, #addClientToggle, #addContractorToggle, #contractorsToggle').click(function () {
         $("#home, #currentOrders, #addOrder, #addClient, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory").hide();
         let elementId = $(this).attr('id').replace("Toggle", "");
         $('#' + elementId).show();
     });
-    $('#dark-mode').checked(function () {
-        $('.bg-white').addClass('bg-dark');
-        $('.bg-white').removeClass('bg-white');
+    // $('#dark-mode').click(function () {
+    //     $('.bg-white').addClass('bg-black');
+    //     $('.bg-light').addClass('bg-dark');
+    //     $('body').css('color', 'white');
+    //     $('.bg-white').removeClass('bg-black');
+    //     $('.bg-light').removeClass('bg-dark');
+    // });
+    $('.log-out').click(function () {
+        Cookie.remove("login", { path: '/', domain: 'localhost' });
+    });
+    if ($(window).width() < 600) {
+        $('body').load('view/mobile.php');
+        $('#currentOrders, #sidebar, #more, #addOrder, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory, #addInvoices, #costInvoices, #allInvoices, #addClient, #addContractor, #contractors').hide();
+        $('#homeToggle').click(function () {
+            $('.content').hide();
+            $('#home').show();
+        });
+        $('.activable').click(function () {
+            $('a.activable').removeClass('active');
+            $(this).addClass('active');
+        });
+        $("a[id$='Toggle']").click(function () {
+            $("#home, #sidebar, #currentOrders, #addOrder, #addClient, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory").hide();
+            let elementId = $(this).attr('id').replace("Toggle", "");
+            $('#' + elementId).show('fast');
+        });
+    } else {
 
-    })
+    }
 });
-

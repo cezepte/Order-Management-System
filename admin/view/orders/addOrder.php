@@ -8,11 +8,11 @@
                 <form action="#" method="post">
                     <input type="hidden" name="insertOrder" value="1">
                     <select class="form-select form-select-lg mt-5" name="type">
-                        <option selected value="naprawa">Naprawa</option>
-                        <option value="instalacja">Instalacja</option>
-                        <option value="czyszczenie">Czyszczenie</option>
-                        <option value="doradztwo">Doradztwo</option>
-                        <option value="zakup">Zakup</option>
+                        <?php
+                        foreach($all_services as $service){
+                            echo "<option value='".$service['id']."'>".$service['name']."</option>";
+                        }
+                        ?>
                     </select>
                     <div class="form-floating mt-2">
                         <input type="text" name="comment" id="comment" placeholder="Komentarz" class="form-control" required>
@@ -41,11 +41,11 @@
                         <option value="1">zapłacone</option>
                     </select>
                     <select class="form-select form-select-lg mt-2" name="status">
-                        <option selected value="przyjeta">Przyjęta</option>
-                        <option value="zdiagnozowana">Zdiagnozowana</option>
-                        <option value="w trakcie naprawy">W trakcie naprawy</option>
-                        <option value="naprawiona">Naprawiona</option>
-                        <option value="zakonczona">Wysłana/odebrana</option>
+                        <?php
+                        foreach($all_statuses as $status){
+                            echo "<option value=".$status['status_id'].">".$status['name']."</option>";
+                        }
+                        ?>
                     </select>
                     <button type="submit" class="btn btn-success btn-lg mt-3" style="padding-left: 25%; padding-right: 25%;">Dodaj</button>
                 </form>

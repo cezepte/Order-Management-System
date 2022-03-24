@@ -1,7 +1,7 @@
 <div class="container-fluid bg-light" id="home" onload="chartLoad(<?php echo $income; ?>, <?php echo $outcome;?>);">
     <h1 style="text-align: center">JK Management - sprawy system zarządzania zgłoszeniami</h1>
     <div class="row">
-        <div class="col-md border rounded-3 shadow bg-white m-4 p-5 align-items-start">
+        <div class="col-md border rounded-3 shadow bg-white m-4 p-5 align-items-start" id='financeCanvas'>
             <h3 class="text-center mb-3">Twoje finanse</h3>
             <div class="canvas-button-group btn-group mb-3 border d-flex justify-content-center" role="group">
                 <button type="submit" class="btn btn-light activable active">Dzisiaj</button>
@@ -38,13 +38,12 @@
                         ?>
                         <tr>
                             <?php
-                        echo "<td>".$order_data['type']."</td>";
+                        echo "<td>".$order_data['name']."</td>";
                         echo "<td>".$order_data['comment']."</td>";
-                        echo "<td>".$order_data['lastName']." ".$order_data['firstName']."</td>";
+                        echo "<td>".$order_data['CLIENT']."</td>";
                         echo "<td>".$order_data['date_c']."</td>";
                         ?>
-                        <td><a href="index.php?orderId=<?php echo $order_data['id']; ?>" class="btn btn-warning">Edytuj</a></td>
-                        <td><a href="index.php?orderId=<?php echo $order_data['id']; ?>" class="btn btn-danger">Usuń</a></td>
+                        <td><a onclick="orderPreview(<?php echo $order_data['id']; ?>" class="btn btn-success">Zobacz</a></td>
                         </tr>
                         <?php
                     }
