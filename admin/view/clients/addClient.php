@@ -15,8 +15,12 @@
                         <label for="lastName">Nazwisko</label>
                     </div>
                     <div class="form-floating mt-2">
-                        <input type="text" name="company" id="company" placeholder="Firma" class="form-control" required>
+                        <input type="text" name="company" id="company" placeholder="Firma" class="form-control" >
                         <label for="company">Firma</label>
+                    </div>
+                    <div class="form-floating mt-2">
+                        <input type="number" name="tin" id="tin" placeholder="NIP" class="form-control">
+                        <label for="tin">NIP</label>
                     </div>
                     <div class="form-floating mt-2">
                         <input type="text" name="tel_number" id="tel_number" placeholder="Telefon" class="form-control" required>

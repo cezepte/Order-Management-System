@@ -17,9 +17,9 @@ $(document).ready(function () {
             };
         });
     });
-    $('#currentOrders, #addOrder, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory, #addInvoices, #costInvoices, #allInvoices, #addClient, #addContractor, #contractors, #previewOrder').hide();
+    $('#currentOrders, #addOrder, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory, #addInvoice, #costInvoices, #allInvoices, #addClient, #addContractor, #contractors, #previewOrder').hide();
     $('#currentOrdersToggle, #addOrderToggle, #addServiceToggle, #homeToggle, #complaintsToggle, #parcelsToggle, #clientsToggle, #allServicesToggle, #usersToggle, #settingsToggle, #companyDataToggle, #orderHistoryToggle, #addInvoiceToggle, #costInvoicesToggle, #allInvoicesToggle, #addClientToggle, #addContractorToggle, #contractorsToggle').click(function () {
-        $("#home, #currentOrders, #addOrder, #addClient, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory").hide();
+        $("#home, #currentOrders, #addOrder, #addClient, #addService, #clients, #complaints, #parcels, #allServices, #users, #settings, #companyData, #orderHistory, #addInvoice").hide();
         let elementId = $(this).attr('id').replace("Toggle", "");
         $('#' + elementId).show();
     });
@@ -50,6 +50,5 @@ $(document).ready(function () {
             $('#' + elementId).show('fast');
         });
     } else {
-
     }
 });

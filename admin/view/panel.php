@@ -6,34 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel administratora</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="view/css/style.css">
     <link href="view/css/style_mobile.css" rel="stylesheet" media="screen and (max-width: 600px)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="view/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="view/js/chartHandler.js"></script>
     <script src="view/js/admin.js"></script>
-    <script type="module" src="view/js/js.cookie.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script>
         const clients_table = <?php echo json_encode($clients_by_id); ?>;
-        const orders_table = <?php echo json_encode($orders_by_id); ?>;
-        $(document).ready( function(){
-            $('.client').click(function () {
-                let userId = $(this).attr('id').replace('client_', '');
-                let userData = clients_table[userId-1];
-                $('.client-info-table').html("<tr><td>Imię:</td><td><strong> "+userData[1]+"</strong></td></tr><tr><td>Nazwisko:</td> <td><strong>"+userData[2]+"</strong></td></tr><tr><td>Firma: </td><td><strong>"+userData[3]+"</strong></td></tr><tr><td>NIP: </td><td><strong>"+userData[4]+"</strong></strong></td></tr><tr><td>Telefon: </td><td><strong>"+userData[5]+"</strong></td></tr><tr><td>E-mail: </td><td><strong>"+userData[6]+"</strong></td></tr>");
-            });
-        });
         function clientDetails(clientId){
-            let clientData = clients_table[clientId-1];
-
+            let userData = clients_table[clientId-1];
+            document.getElementById('firstName').innerHTML = userData[1];
+            document.getElementById('lastName').innerHTML = userData[2];
+            document.getElementById('company').innerHTML = userData[3];
+            document.getElementById('tin').innerHTML = userData[4];
+            document.getElementById('telNumber').innerHTML = userData[5];
+            document.getElementById('email').innerHTML = userData[6];
         }
-        const content = document.getElementById('orderPreview');
         function orderPreview(orderId) {
+            const clients_table = <?php echo json_encode($clients_by_id); ?>;
+            const orders_table = <?php echo json_encode($orders_by_id); ?>;
+            const topnav = document.getElementById('topnav');
+            const orderPreviewBlock = document.getElementById('orderPreview');
+            const sidebar = document.getElementById('sidebar');
+            const mainContainer = document.getElementById('mainContainer');
+            const orderPreviewContainer = document.getElementById('orderPreviewContainer');
+            orderPreviewBlock.style.display = "block";
+            orderPreviewContainer.style.display = 'block';
+            topnav.style.opacity = "0.50";
+            sidebar.style.opacity = "0.50";
+            mainContainer.style.opacity = "0.50";
             let orderData = orders_table[orderId-1];
-            const table = document.getElementById('orderInfo');
-            const content = document.getElementById('orderPreview');
-            content.style.display = "block";
             document.getElementById('orderId').value = orderData[0];
             document.getElementById('orderType').value = orderData[10];
             document.getElementById('orderComment').innerHTML = orderData[2];
@@ -45,20 +52,45 @@
             document.getElementById('orderDate').innerHTML = orderData[8];
             document.getElementById('orderHeader').innerHTML = orderId-1;
         }
+        function orderPreviewClose(){
+            const topnav = document.getElementById('topnav');
+            const orderPreviewBlock = document.getElementById('orderPreview');
+            const sidebar = document.getElementById('sidebar');
+            const mainContainer = document.getElementById('mainContainer');
+            const orderPreviewContainer = document.getElementById('orderPreviewContainer');
+            orderPreviewContainer.style.display = 'none';
+            topnav.style.opacity = "1";
+            orderPreviewBlock.style.display = "none";
+            sidebar.style.opacity = "1";
+            mainContainer.style.opacity = "1"; 
+        }
         function orderDelete(orderId){
             let orderData = orders_table[orderId-1];
             document.getElementById('orderDelete').style.display = "block";
             document.getElementById('orderDeleteId').value = orderData[0];
+        }
+        function invoiceTypeChange(){
+            const type = document.getElementById('invoiceType').value;
+            switch(type){
+                case 'in':
+                    document.getElementById('invoice-out').style.display = "none";
+                    document.getElementById('invoice-in').style.display = "block";
+                    break;
+                case 'out':
+                    document.getElementById('invoice-in').style.display = "none";
+                    document.getElementById('invoice-out').style.display = "block";
+                    break;
+            }
         }
     </script>
 </head>
 
 <body class="bg-light">  
     <?php
-        include 'view/orders/orderPreview.php';
-        include 'view/orders/orderDelete.php';
+    include 'view/orders/orderPreview.php';
+    include 'view/orders/orderDelete.php';
     ?>
-    <div class="topnav w-100 bg-white p-3 border-bottom" style="z-index: 303">
+    <div class="topnav w-100 bg-white p-3 border-bottom" style="z-index: 303" id='topnav'>
         <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="float:left; width: 280px; z-index: 302">
             <img src="view/assets/favicon.png"  width="40" height="40" alt="" style="margin-right: 20px">
             <span class="fs-4">iLikeMac</span>
@@ -84,12 +116,13 @@
         include 'view/home.php';
         include 'view/orders/currentOrders.php';
         include 'view/orders/addOrder.php';
-        include 'view/addService.php';
-        include 'view/clients.php';
+        include 'view/services/addService.php';
+        include 'view/clients/clients.php';
         include 'view/complaints.php';
         include 'view/orders/orderHistory.php';
         include 'view/parcels.php';
-        include 'view/addClient.php';
+        include 'view/clients/addClient.php';
+        include 'view/invoices/addInvoice.php';
         ?>
     </div>
     <div class="toggle">

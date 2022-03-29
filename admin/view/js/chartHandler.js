@@ -1,3 +1,4 @@
+"use strict";
 function chartLoad(income, outcome) {
     const chartFinanceId = document.getElementById('finance').getContext('2d');
     const dataFinance = {

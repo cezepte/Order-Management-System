@@ -20,7 +20,7 @@
                             echo "<td>".$client_data['firstName']."</td>";
                             echo "<td>".$client_data['company']."</td>";
                     ?>
-                        <td><button class="btn btn-primary client" onclick="$(this).click(function () {$.removeCookie('userId');let userId = $(this).attr('id').replace('client_', '');$.cookie('userId', userId);});" id="client_<?php echo $client_data['client_id']; ?>">Szczegóły</button></td></tr>
+                        <td><button class="btn btn-primary client" onclick="clientDetails(<?php echo $client_data['client_id']; ?>)" id="client_<?php echo $client_data['client_id']; ?>">Szczegóły</button></td></tr>
                     <?php
                         }
                     ?>
@@ -34,7 +34,32 @@
                     <img src="" alt="" class="card-img-top" style="background-color: grey; width: max-content">
                     <div class="card-body">
                         <p class="card-text client-text placeholder-glow">
-                            <table class="client-info-table"></table>
+                            <table class="client-info-table" id="client-info-table">
+                                <tr>
+                                    <td class="text-start">Imię:</td>
+                                    <td class="text-end"><strong><span id="firstName"></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start">Nazwisko:</td>
+                                    <td class="text-end"><strong><span id="lastName"></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start">Firma: </td>
+                                    <td class="text-end"><strong><span id="company"></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start">NIP: </td>
+                                    <td class="text-end"><strong><span id="tin"></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start">Telefon: </td>
+                                    <td class="text-end"><strong><span id="telNumber"></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start">E-mail: </td>
+                                    <td class="text-end"><strong><span id="email"></span></strong></td>
+                                </tr>
+                            </table>
                         </p>
                         <div class="actions justify-content-center mt-5">
                             <a href="tel:" tabindex="-1" id="callClient" class="btn btn-success col-5"> Zadzwoń </a>

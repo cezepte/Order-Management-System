@@ -5,7 +5,7 @@
         <div class="text-centered" id="alert-box"></div>
         <h2>Lista zgłoszeń w realizacji</h2>
         <ul style="float: right; clear: both">
-            <li><button class="btn btn-primary" onclick="$('.content').load('addOrder.php')">Dodaj nowe zlecenie</button></li>
+            <li><button class="btn btn-primary" onclick="">Dodaj nowe zlecenie</button></li>
         </ul>
     </div>
     <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
