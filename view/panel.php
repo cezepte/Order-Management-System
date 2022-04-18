@@ -12,9 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="view/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="view/js/chartHandler.js"></script>
-    <script src="view/js/admin.js"></script>
-    <script src="view/js/invoices.js"></script>
+    <script src="view/js/chartHandler.js" type="text/javascript"></script>
+    <script src="view/js/invoices.js" type="text/javascript"></script>
+    <script src="view/js/admin.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script>
         function clientDetails(clientId){
@@ -69,6 +69,60 @@
             document.getElementById('orderDelete').style.display = "block";
             document.getElementById('orderDeleteId').value = orderData[0];
         }
+        function invoicePreview(invoiceId){
+            const items = <?php echo json_encode($invoices_items); ?>;
+            const topnav = document.getElementById('topnav');
+            const invoicePreviewBlock = document.getElementById('invoicePreview');
+            const sidebar = document.getElementById('sidebar');
+            const mainContainer = document.getElementById('mainContainer');
+            const invoicePreviewContainer = document.getElementById('invoicePreviewContainer');
+            invoicePreviewBlock.style.display = "block";
+            invoicePreviewContainer.style.display = 'block';
+            topnav.style.opacity = "0.50";
+            sidebar.style.opacity = "0.50";
+            mainContainer.style.opacity = "0.50";
+            document.getElementById('invoiceNumber').innerHTML = invoiceId;
+            for (let i = 0; i <items.length; i++){
+                const itemsSingle = items[i];
+                const table = document.getElementById('invoiceTable');
+                const line = document.createElement('tr');
+                if(itemsSingle[0] == invoiceId){
+                    document.getElementById('contractor').innerHTML = itemsSingle[6];
+                    for(let n = 1; n<6; n++){
+                        let cell = document.createElement('td');
+                        cell.innerHTML = itemsSingle[n];
+                        line.appendChild(cell);
+                        console.log(cell);
+                    }
+                }
+                console.log(itemsSingle);
+                table.appendChild(line);
+            }
+        }
+        function invoicePreviewClose(){
+            const topnav = document.getElementById('topnav');
+            const invoicePreviewBlock = document.getElementById('invoicePreview');
+            const sidebar = document.getElementById('sidebar');
+            const mainContainer = document.getElementById('mainContainer');
+            const invoicePreviewContainer = document.getElementById('invoicePreviewContainer');
+            invoicePreviewBlock.style.display = "none";
+            invoicePreviewContainer.style.display = 'none';
+            topnav.style.opacity = "1";
+            sidebar.style.opacity = "1";
+            mainContainer.style.opacity = "1";
+            document.getElementById('invoiceTable').innerHTML = "";   
+        }
+        function showCompanyData(){
+            const data = <?php echo json_encode($companyData); ?>;
+            const dataTable = data[1];
+            console.log(dataTable[0]);
+            document.getElementById('companyName').value = dataTable[0];
+            document.getElementById('companyTin').value = dataTable[1];
+            document.getElementById('companyStreetNumber').value = dataTable[2];
+            document.getElementById('companyPostCode').value = dataTable[3];
+            document.getElementById('companyCity').value = dataTable[4];
+            document.getElementById('topBarCompanyName').innerHTML = dataTable[0];
+        }
     </script>
 </head>
 
@@ -76,11 +130,12 @@
     <?php
     include 'view/orders/orderPreview.php';
     include 'view/orders/orderDelete.php';
+    include 'view/invoices/invoicePreview.php';
     ?>
     <div class="topnav w-100 bg-white p-3 border-bottom" style="z-index: 303" id='topnav'>
         <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="float:left; width: 280px; z-index: 302">
             <img src="view/assets/favicon.png"  width="40" height="40" alt="" style="margin-right: 20px">
-            <span class="fs-4">Company name</span>
+            <span class="fs-4" id="topBarCompanyName">Company name</span>
         </a>
         <form class="d-flex w-25" id="searchBar" style="float: right; margin-left: 50px">
             <input class="form-control me-2" type="search" placeholder="Szukaj" aria-label="Szukaj">
@@ -110,6 +165,8 @@
         include 'view/parcels.php';
         include 'view/clients/addClient.php';
         include 'view/invoices/addInvoice.php';
+        include 'view/invoices/showInvoices.php';
+        include 'view/company/companyData.php';
         ?>
     </div>
     <div class="toggle">

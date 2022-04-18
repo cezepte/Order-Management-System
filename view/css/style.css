@@ -1,9 +1,10 @@
-body{
+body {
     /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
     font-family: 'Nunito', sans-serif;
     margin: 0;
 }
-header{
+
+header {
     background-image: url(".../assets/img/header.jpeg");
     background-color: #fff;
     background-repeat: no-repeat;
@@ -13,80 +14,98 @@ header{
     /* box-shadow: 0px -50px 100px black inset; */
     z-index: 1;
 }
-nav{
+
+nav {
     height: 50px;
     width: 100vw;
     position: relative;
     padding: 10px;
     z-index: 2;
 }
-nav ul{
+
+nav ul {
     float: left;
 }
-nav ul li{
+
+nav ul li {
     display: inline-block;
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin-right: 30px;
     padding: 5px;
 }
-nav ul li a:link,nav ul li a:visited{
+
+nav ul li a:link,
+nav ul li a:visited {
     color: #fff;
     text-decoration: none;
 }
-nav ul li:hover{
+
+nav ul li:hover {
     opacity: 0.8;
     box-shadow: 0px 0px 2px black inset;
     transition: opacity 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
     color: white;
 }
-.btn-nav-right{
+
+.btn-nav-right {
     float: right;
 }
-.heading{
+
+.heading {
     padding-top: 100px;
     text-align: center;
-    color:white;
+    color: white;
     font-size: 300%;
 }
-.shadow{
+
+.shadow {
     transition: box-shadow 0.3s ease-in-out;
 }
-.shadow-lg{
+
+.shadow-lg {
     transition: box-shadow 0.3s ease-in-out;
 }
-.sidenav{
+
+.sidenav {
     float: left;
     position: fixed;
     z-index: 202;
     width: 280px;
+    display: block;
 }
-.content{
-    float:left;
+
+.content {
+    float: left;
     padding-left: 280px;
     width: 100%;
     padding-top: 85px;
 }
-.btn-toggle:hover{
+
+.btn-toggle:hover {
     cursor: pointer;
 }
-.topbar{
+
+.topbar {
     height: 50px;
     width: auto;
     position: relative;
     padding: 10px;
     z-index: 2;
 }
-.topbar ul{
+
+.topbar ul {
     list-style: none;
 }
+
 .nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .show>.nav-link {
     color: #fff;
     background-color: #198754;
     border-color: #198754;
 }
-.toggle{
+
+.toggle {
     z-index: 203;
     position: fixed;
     width: 10%;
@@ -94,63 +113,81 @@ nav ul li:hover{
     margin-top: 70px;
     margin-left: 90%;
 }
-.toggle button{
+
+.toggle button {
     float: right;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     transition: all 0.5s ease-in-out;
 }
-.toggle button:hover{
+
+.toggle button:hover {
     padding-right: 60px;
 }
-.topnav{
-    position:fixed;
+
+.topnav {
+    position: fixed;
     width: 100%;
 }
-.topnav ul{
+
+.topnav ul {
     float: right;
 }
-.topnav ul li{
+
+.topnav ul li {
     display: inline-block;
 }
 
-.content #home .row{
+.content #home .row {
     margin: 0 auto;
     justify-content: center;
 }
-.content #home .row .col-md{
+
+.content #home .row .col-md {
     max-width: 46%;
 }
-.form-check-input[type=checkbox]:indeterminate{
+
+.form-check-input[type=checkbox]:indeterminate {
     background-color: #198754;
     border-color: #198754;
 }
-.form-check-input:checked{
+
+.form-check-input:checked {
     background-color: #198754;
     border-color: #198754;
 }
+
 .form-check-input:focus {
     border-color: #198754a8;
     outline: 0;
     box-shadow: 0 0 0 0.25rem #198754a8;
 }
-a.activable, .btn-toggle{
+
+a.activable,
+.btn-toggle {
     transition: all 0.2s ease-in-out;
 }
-a.activable:hover, .btn-toggle:hover{
+
+a.activable:hover,
+.btn-toggle:hover {
     background-color: rgb(211, 210, 210);
 }
-.client-data-card{
-    display:none;
+
+.client-data-card {
+    display: none;
 }
-.client-info-table td{
+
+.client-info-table td {
     text-align: end;
     vertical-align: text-top;
 }
-.userPreview{
-    margin-right: 0px; 
+
+.userPreview {
+    margin-right: 0px;
     float: right;
 }
-#orderPreviewContainer{
+
+#orderPreviewContainer,
+#invoicePreviewContainer {
     display: none;
 }

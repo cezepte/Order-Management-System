@@ -200,7 +200,9 @@
                 <li><a class="dropdown-item" href="#">Ustawienia</a></li>
                 <li><a class="dropdown-item" href="#"></a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#" class="log-out">Wyloguj się</a></li>
+                <form action="" method="post" id="log-out">
+                    <li><a class="dropdown-item" href="#" id="log-out-toggle" name="log-out" class="log-out">Wyloguj się</a></li>
+                </form>
             </ul>
         </div>
     </div>

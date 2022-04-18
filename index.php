@@ -64,6 +64,17 @@
                     }
                 }
             include 'model/complaints_db.php';
+            include 'model/company_db.php';
+                $company = new Company();
+                $companyData = $company->select_company_data();
+                if(isset($_POST['companyName'])){
+                    $companyName = $_POST['companyName'];
+                    $companyTin = $_POST['companyTin'];
+                    $companyStreetNumber = $_POST['companyStreetNumber'];
+                    $companyPostCode = $_POST['companyPostCode'];
+                    $companyCity = $_POST['companyCity'];
+                    $company_data_insert = $company->update_company_data($companyName,$companyTin,$companyStreetNumber,$companyPostCode,$companyCity);
+                }
             include 'model/service_db.php';
                 $services = new Services();
                 $all_services = $services->select_all_services();
@@ -71,23 +82,23 @@
                 $invoices = new Invoices();
                 if (isset($_POST['invoiceType'])){
                     $type = $_POST['invoiceType'];
-                    if($type == "in"){
-                        $quantity = $_POST['quantity'];
-                        $item = $_POST['item'];
-                        $netto_price = $_POST['priceNetto'];
-                        $vat = $_POST['vat'];
-                        $brutto_price = $_POST['priceBrutto'];
-                        $client_id = $_POST['clients_id'];
-                        $invoice_insert = $invoices->insert_invoice_in($client_id,$quantity,$item,$netto_price,$vat,$brutto_price);
-                    }
+                    $quantity = $_POST['quantity'];
+                    $item = $_POST['item'];
+                    $netto_price = $_POST['priceNetto'];
+                    $vat = $_POST['vat'];
+                    $brutto_price = $_POST['priceBrutto'];
+                    $contractor_id = $_POST['clients_id'];
+                    $invoice_insert = $invoices->insert_invoice($type,$contractor_id,$quantity,$item,$netto_price,$vat,$brutto_price);
                 }
+                $invoices_all = $invoices->select_all_invoices();
+                $invoices_items = $invoices->select_all_items();
             include 'view/panel.php';
+            if(isset($_POST['log-out'])){
+                unset($_COOKIE['login']);
+                setcookie('login',null,-1,'/');
+            }
         }else{
             include 'view/loginForm.php';
-        }
-        if(isset($_GET['logOut'])){
-            setcookie('login','',time()-3600,'/');
-            unset($_COOKIE['login']);
         }
 
 ?>

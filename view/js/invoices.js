@@ -1,4 +1,5 @@
 "use strict";
+
 function invoiceTypeChange() {
     const type = document.getElementById('invoiceType').value;
     switch (type) {
@@ -11,10 +12,4 @@ function invoiceTypeChange() {
             document.getElementById('invoice-out').style.display = "block";
             break;
     }
-}
-function invoiceNewPosition() {
-    let row = document.querySelector('.insertInvoicePosition');
-    let nextRow = row.cloneNode(true);
-    nextRow.classList.add('insertInvoicePosition');
-    row.after(nextRow);
-}
+};

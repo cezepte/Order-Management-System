@@ -4,7 +4,7 @@
         <div class="col-md-10">
             <div class="content-box m-0 border rounded bg-white shadow text-center p-5 mt-5 w-100">
                 <h1>Dodaj fakturę</h1>
-                <form action="#" method="post">
+                <form name="newInvoice" action="#" method="post">
                     <input type="hidden" name="insertInvoice" value="1">
                     <select name="invoiceType" id="invoiceType" onchange="invoiceTypeChange()">
                         <option value="in" selected>przychodząca</option>
@@ -29,27 +29,27 @@
                                     <td style="width: 15%">Cena brutto</td>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr class="insertInvoicePosition">
+                            <tbody id="positionList">
+                                <tr class="insertInvoicePosition" id="insertInvoicePosition">
                                     <td style="width: 10%">
-                                        <input type="number" name="quantity" id="quantity" style="width: 100%">
+                                        <input type="number" name="quantity[]" id="quantity" style="width: 100%">
                                     </td>
                                     <td style="width: 50%">
-                                        <input type="text" name="item" id="item" style="width: 100%">
+                                        <input type="text" name="item[]" id="item" style="width: 100%">
                                     </td>
                                     <td style="width: 15%">
-                                        <input type="number" name="priceNetto" id="priceNetto" style="width: 100%">
+                                        <input type="number" name="priceNetto[]" id="priceNetto" style="width: 100%">
                                     </td>
                                     <td style="width: 10%">
-                                        <input type="number" name="vat" id="vat" style="width: 100%">
+                                        <input type="number" name="vat[]" id="itemVat" style="width: 100%">
                                     </td>
                                     <td style="width: 15%">
-                                        <input type="number" name="priceBrutto" id="priceBrutto" style="width: 100%">
+                                        <input type="number" name="priceBrutto[]" id="priceBrutto" style="width: 100%">
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="button" class="btn btn-success" onclick="invoiceNewPosition()">Dodaj pozycję...</button>
+                        <a type="button" class="btn btn-success" id="addPosition">Dodaj pozycję...</a>
                     </div>
                     <div id="invoice-out" style="display:none">
                         invoice out
