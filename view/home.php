@@ -17,7 +17,8 @@
                 <button type="submit" class="btn btn-light">Ostatni tydzień</button>
                 <button type="submit" class="btn btn-light">Ostatni miesiąc</button>
             </div>
-            <canvas id="orderCount"></canvas>
+            <!-- <canvas id="orderCount"></canvas> -->
+            <p id="orderCount"></p>
         </div>
     </div>
     <div class="row">

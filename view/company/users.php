@@ -13,9 +13,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <td style="width: 10%">Nazwa</td>
-                    <td style="width: 20%">Typ</td>
-                    <td style="width: 70%">Kontrahent</td>
+                    <td style="width: 10%">Id</td>
+                    <td style="width: 20%">Nazwa</td>
+                    <td style="width: 70%">Imię i nazwisko</td>
                 </tr>
             </thead>
             <tbody>
