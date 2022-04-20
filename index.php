@@ -69,19 +69,6 @@
             document.getElementById('orderDelete').style.display = "block";
             document.getElementById('orderDeleteId').value = orderData[0];
         }
-        function invoicePreviewClose(){
-            const topnav = document.getElementById('topnav');
-            const invoicePreviewBlock = document.getElementById('invoicePreview');
-            const sidebar = document.getElementById('sidebar');
-            const mainContainer = document.getElementById('mainContainer');
-            const invoicePreviewContainer = document.getElementById('invoicePreviewContainer');
-            invoicePreviewBlock.style.display = "none";
-            invoicePreviewContainer.style.display = 'none';
-            topnav.style.opacity = "1";
-            sidebar.style.opacity = "1";
-            mainContainer.style.opacity = "1";
-            document.getElementById('invoiceTable').innerHTML = "";   
-        }
         function showCompanyData(){
             const data = <?php echo json_encode($companyData); ?>;
             const dataTable = data[1];
@@ -135,7 +122,7 @@
         include 'view/parcels.php';
         include 'view/clients/addClient.php';
         include 'view/invoices/addInvoice.php';
-        include 'view/invoices/showInvoices.php';
+        include 'view/invoices/showInvoices.html';
         include 'view/company/companyData.php';
         ?>
     </div>

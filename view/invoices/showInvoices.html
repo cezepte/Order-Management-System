@@ -10,7 +10,7 @@
         <div role="alert" aria-live="assertive" aria-atomic="true"> </div>
     </div>
     <div class="">
-        <table class="table">
+        <table class="table" id="invoicesAll">
             <thead>
                 <tr>
                     <td style="width: 10%">Numer</td>
@@ -20,10 +20,6 @@
             </thead>
             <tbody id="invoiceTable">
             </tbody>
-            <tr>
-            <td><a href="#" onclick="invoicePreview(<?php echo $invoice['id']; ?>)" class="btn btn-primary">Pokaż</a></td>
-            <td><a href="#" onclick="orderDelete(<?php echo $invoice['id']; ?>)" class="btn btn-success">Edytuj</a></td>
-            </tr>
         </table>
     </div>
 </div>

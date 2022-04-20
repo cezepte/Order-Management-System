@@ -95,15 +95,19 @@
                     }
                 }
                 else if($request == "invoicesAll"){
+
                     $invoices_all = $invoices->select_all_invoices();
                     $invoices_output = json_encode($invoices_all);
                     echo $invoices_output;
-                }else if($request == "invoiceSingle"){
+
+                }
+                else if($request == "invoicesItems"){
+
                     $invoices_items = $invoices->select_all_items();
                     $invoices_items_table = json_encode($invoices_items);
                     echo $invoices_items_table;
+
                 }
-            // include 'view/panel.php';
             if(isset($_POST['log-out'])){
                 unset($_COOKIE['login']);
                 setcookie('login',null,-1,'/');
