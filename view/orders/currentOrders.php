@@ -21,24 +21,7 @@
                     <td style="width: 15%">Data</td>
                 </tr>
             </thead>
-            <tbody>
-                <?php
-                    foreach($orders_by_id_desc as $order_data){
-                    ?>
-                    <tr>
-                        <?php  
-                    echo "<td>".$order_data['name']."</td>";
-                    echo "<td>".$order_data['comment']."</td>";
-                    echo "<td>".$order_data['CLIENT']."</td>";
-                    echo "<td>".$order_data['status']."</td>";
-                    echo "<td>".$order_data['date_c']."</td>";
-                    ?>
-                    <td><a href="#" onclick="orderPreview(<?php echo $order_data['id']; ?>)" class="btn btn-warning">Edytuj</a></td>
-                    <td><a href="#" onclick="orderDelete(<?php echo $order_data['id']; ?>)" class="btn btn-danger">Usuń</a></td>
-                    </tr>
-                    <?php
-                }
-                ?>
+            <tbody id='orders'>
             </tbody>
         </table>
     </div>
