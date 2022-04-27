@@ -1,7 +1,7 @@
 # Order Management System
 ## Description
 ### Basic order management system for small businesses and your local activity. Simple and easy to use as well as to install.
-This application is written in PHP, JS, CSS & HTML. The complexity of backend operations makes it hard for single person to develop quickly. In new releases there will be coming new features, updates to the design and functionality as well as bug fixes and optimalization so it can run fast and efficiently. For know I want to focus on features. Developing them can make app more usable quicker and visual updates will come more rarely than backend.
+This application is written in PHP, JS, CSS & HTML. The complexity of backend operations makes it hard for single person to develop quickly. In new releases there will be coming new features, updates to the design and functionality as well as bug fixes and optimalization so it can run fast and efficiently. For now I want to focus on features. Developing them can make app more usable quicker and visual updates will come more rarely than backend.
 This tool allows you to:
 - store all of your orders in one place
 - keep track of your finances
