@@ -37,6 +37,15 @@ class Orders{
         $statement->closeCursor();
         return $results_orders_of_single_client;
     }
+    public function select_orders_finished(){
+        global $db;
+        $query = "SELECT * FROM orders WHERE status LIKE 'zakonczona'";
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $results_orders_finished = $statement->fetchAll();
+        $statement->closeCursor();
+        return $results_orders_finished;
+    }
     public function insert_order($service_id,$comment,$clients_id,$price,$vat,$status){
         global $db;
         $count = 0;

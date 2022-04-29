@@ -48,10 +48,6 @@ nav ul li:hover {
     color: white;
 }
 
-.btn-nav-right {
-    float: right;
-}
-
 .heading {
     padding-top: 100px;
     text-align: center;
@@ -67,12 +63,17 @@ nav ul li:hover {
     transition: box-shadow 0.3s ease-in-out;
 }
 
+#sidebar {
+    display: block;
+}
+
 .sidenav {
     float: left;
     position: fixed;
     z-index: 202;
     width: 280px;
     display: block;
+    height: 100vh;
 }
 
 .content {
@@ -81,6 +82,19 @@ nav ul li:hover {
     width: 100%;
     padding-top: 85px;
 }
+
+#home {
+    display: flex;
+
+}
+
+.border {
+    border: 1px solid lightgray;
+}
+
+/* #financeCanvas {
+
+} */
 
 .btn-toggle:hover {
     cursor: pointer;
@@ -105,45 +119,40 @@ nav ul li:hover {
     border-color: #198754;
 }
 
-.toggle {
-    z-index: 203;
-    position: fixed;
-    width: 10%;
-    padding: 0%;
-    margin-top: 70px;
-    margin-left: 90%;
-}
-
-.toggle button {
-    float: right;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    transition: all 0.5s ease-in-out;
-}
-
-.toggle button:hover {
-    padding-right: 60px;
-}
-
 .topnav {
     position: fixed;
     width: 100%;
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: auto;
+    z-index: 9999;
+    padding: 10px;
 }
 
-.topnav ul {
-    float: right;
+
+#companyName {
+    text-decoration: none;
 }
 
-.topnav ul li {
-    display: inline-block;
+#sidebarToggle {
+    color: white;
 }
 
-.content #home .row {
+.content .row {
     margin: 0 auto;
     justify-content: center;
 }
 
-.content #home .row .col-md {
+
+#lastOrders {
+    align-self: stretch;
+}
+
+.content .row .col-md {
     max-width: 46%;
 }
 
@@ -190,4 +199,52 @@ a.activable:hover,
 #orderPreviewContainer,
 #invoicePreviewContainer {
     display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        max-width: 100%;
+    }
+
+    .sidenav {
+        display: none;
+        inset: 0% 0 0 30%;
+        background-color: steelblue;
+        z-index: 1000;
+        max-height: 100vh;
+    }
+
+    #sidebar {
+        display: none;
+    }
+
+    .sidenav::backdrop {
+        backdrop-filter: 90%;
+    }
+
+    #sidebarListOptions {
+        height: 80%;
+    }
+
+    .content {
+        padding-left: 0px;
+        max-width: 100%;
+        flex-direction: column;
+        flex: 1 1 100%;
+    }
+
+    .topnav {
+        display: flex;
+    }
+
+    #home {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    #hide-sidebar {
+        align-self: flex-end;
+    }
 }

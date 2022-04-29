@@ -18,13 +18,7 @@
                             <tr>
                                 <td>Typ: </td>
                                 <td>
-                                    <select class="form-select" name="orderType" id="orderType">
-                                        <?php
-                                    foreach($all_services as $service){
-                                        echo "<option value=".$service['id'].">".$service['name']."</option>";
-                                    }
-                                    ?>
-                                </select>
+                                    <select class="form-select" name="orderType" id="orderType"></select>
                             </td>
                         </tr>
                         <tr>
@@ -52,13 +46,7 @@
                         <tr>
                             <td>Status: </td>
                             <td>
-                                <select class="form-select" name="orderStatus" id="orderStatus">
-                                    <?php
-                                    foreach($all_statuses as $status){
-                                        echo "<option value=".$status['status_id'].">".$status['name']."</option>";
-                                    }
-                                    ?>
-                                </select>
+                                <select class="form-select" name="orderStatus" id="orderStatus"></select>
                             </td>
                         </tr>
                         <tr>

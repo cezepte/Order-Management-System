@@ -7,23 +7,14 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <td style="width: 30%">Nazwisko</td>
-                        <td style="width: 15%">Imię</td>
-                        <td style="width: 45%">Firma</td>
-                        <td style="width: 10%">Akcje</td>
+                        <th style="width: 30%">Nazwisko</th>
+                        <th style="width: 15%">Imię</th>
+                        <th style="width: 45%">Firma</th>
+                        <th style="width: 10%">Akcje</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                        foreach($clients_by_lastname as $client_data){
-                            echo "<tr><td>".$client_data['lastName']."</td>";
-                            echo "<td>".$client_data['firstName']."</td>";
-                            echo "<td>".$client_data['company']."</td>";
-                    ?>
+                <tbody id="clientList">
                         <td><button class="btn btn-primary client" onclick="clientDetails(<?php echo $client_data['client_id']; ?>)" id="client_<?php echo $client_data['client_id']; ?>">Szczegóły</button></td></tr>
-                    <?php
-                        }
-                    ?>
                 </tbody>
             </table>
         </div>

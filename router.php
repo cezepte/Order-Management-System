@@ -1,6 +1,6 @@
 <?php
     require('model/database.php');
-        if(isset($_COOKIE['login'])){
+        // if(isset($_COOKIE['login'])){
             $request = $_REQUEST['position'];
             include 'model/finance_db.php';
             include 'model/orders_db.php';
@@ -30,9 +30,14 @@
                     echo $orders_by_id_desc;
                     break;
                 case "ordersById":
-                    $orders_by_id = $orders->select_orders_by_id();
+                    $orders_by_id_db = $orders->select_orders_by_id();
+                    $orders_by_id = json_encode($orders_by_id_db);
                     echo $orders_by_id;
-                    $orders_last_3 = $orders->select_orders_last_3();
+                    break;
+                case "ordersLast3":
+                    $orders_last_3_db = $orders->select_orders_last_3();
+                    $orders_last_3 = json_encode($orders_last_3);
+                    echo $orders_last_3;
                     break;
                 case "orderInsert":
                     if(isset($_POST['insertOrder'])){
@@ -148,8 +153,8 @@
                 unset($_COOKIE['login']);
                 setcookie('login',null,-1,'/');
             }
-        }else{
-            include 'view/loginForm.php';
-        }
+        // }else{
+        //     include 'view/loginForm.php';
+        // }
 
 ?>

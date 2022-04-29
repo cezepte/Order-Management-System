@@ -8,7 +8,8 @@ Back-end is written in PHP without use of any framework, just plain PHP. Same go
 - company name displayed in the top bar
 ### CHANGED
 - minimalized usage of jQuery in favour of plain JavaScript
-###
+- minimalized usage of PHP to display content in favour of AJAX calls
+### FIXED
 - styles not aplying to login page
 ## [0.1.0] - 2022-04-11
 ### ADDED

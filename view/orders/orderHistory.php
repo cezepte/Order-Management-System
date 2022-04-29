@@ -18,36 +18,23 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $sql = "SELECT * FROM orders WHERE status LIKE 'zakonczona'";
-                $query = mysqli_query($conn, $sql);
-                if(!empty($query)){
-                ?>
+                
                     
                     <h1 style="position: absolute; padding-left: 280px; padding-top: 100px; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
                     Historia zakończonych zamówień jest pusta
                     </h1>
-                    <?php
-                }else{
-
-                    foreach($query as $result){
-                        ?>
                     <tr>
                         <?php
-                    echo "<td>".$result['id']."</td>";
-                    echo "<td>".$result['type']."</td>";
-                    echo "<td>".$result['comment']."</td>";
-                    echo "<td>".$order_data['lastName']." ".$order_data['firstName']."</td>";
-                    echo "<td>".$result['status']."</td>";
-                    echo "<td>".$result['date_c']."</td>";
+                    // echo "<td>".$result['id']."</td>";
+                    // echo "<td>".$result['type']."</td>";
+                    // echo "<td>".$result['comment']."</td>";
+                    // echo "<td>".$order_data['lastName']." ".$order_data['firstName']."</td>";
+                    // echo "<td>".$result['status']."</td>";
+                    // echo "<td>".$result['date_c']."</td>";
                     ?>
                     <td><a href="#" class="btn btn-warning">Edytuj</a></td>
                     <td><a href="#" onclick="showOrderPreview()" class="btn btn-danger">Usuń</a></td>
                 </tr>
-                <?php
-                    }
-                }   
-                ?>
             </tbody>
         </table>
     </div>

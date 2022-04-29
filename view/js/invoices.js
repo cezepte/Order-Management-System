@@ -137,3 +137,39 @@ async function showInvoices() {
         console.log(message);
     })
 }
+
+function invoiceNewPosition(n) {
+    n = n + 1;
+    const positionList = document.getElementById('positionList');
+    const form = document.createElement('form');
+    const line = document.createElement('tr');
+    let cell = document.createElement('td');
+    form.name = "invoices_in_items_" + n;
+    form.method = "post";
+    const quantityNode = document.getElementById('quantity').cloneNode(true);
+    quantityNode.id = "quantity-" + n;
+    cell.appendChild(quantityNode);
+    line.appendChild(cell);
+    cell = document.createElement('td');
+    const itemNode = document.getElementById('item').cloneNode(true);
+    itemNode.id = "item-" + n;
+    cell.appendChild(itemNode);
+    line.appendChild(cell);
+    cell = document.createElement('td');
+    const priceNettoNode = document.getElementById('priceNetto').cloneNode(true);
+    priceNettoNode.id = "priceNetto-" + n;
+    cell.appendChild(priceNettoNode);
+    line.appendChild(cell);
+    cell = document.createElement('td');
+    const vatNode = document.getElementById('itemVat').cloneNode(true);
+    vatNode.id = "itemVat-" + n;
+    cell.appendChild(vatNode);
+    line.appendChild(cell);
+    cell = document.createElement('td');
+    const priceBruttoNode = document.getElementById('priceBrutto').cloneNode(true);
+    priceBruttoNode.id = "priceBrutto-" + n;
+    cell.appendChild(priceBruttoNode);
+    line.appendChild(cell);
+    positionList.appendChild(line);
+    return n;
+}
