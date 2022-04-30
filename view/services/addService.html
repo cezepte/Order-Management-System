@@ -1,11 +1,3 @@
-<?php
-$host = "localhost";
-$login = "root";
-$pass = "root";
-$db = "serwis_test";
-
-$conn = mysqli_connect($host,$login,$pass,$db);
-?>
 <div class="container-fluid w-100" id="addService">
     <div class="row">
         <div class="col-md-3"></div>
@@ -39,21 +31,3 @@ $conn = mysqli_connect($host,$login,$pass,$db);
         <div class="col-md-3"></div>
     </div>
 </div>
-
-<?php
-    if(isset($_POST['type'])){
-        $type = $_POST['type'];
-        $comment = $_POST['comment'];
-        $user = $_POST['user'];
-        $price = $_POST['price'];
-        $vat = $_POST['vat'];
-        $status = $_POST['status'];
-        
-        $sql = "INSERT INTO orders(type,comment,user,netto_price,vat,status) VALUES ('$type','$comment','$user','$price','$vat','$status')";
-
-        $query = mysqli_query($conn, $sql);
-        $query;
-    }else{
-
-    }
-?>

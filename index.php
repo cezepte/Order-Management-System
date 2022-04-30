@@ -46,7 +46,7 @@
         include 'view/clients/clients.php';
         include 'view/complaints.php';
         include 'view/orders/orderHistory.php';
-        include 'view/clients/addClient.php';
+        include 'view/clients/addClient.html';
         include 'view/invoices/addInvoice.php';
         include 'view/invoices/showInvoices.html';
         include 'view/company/companyData.php';

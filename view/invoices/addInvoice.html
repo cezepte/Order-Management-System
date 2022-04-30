@@ -11,13 +11,8 @@
                         <option value="out">wychodząca</option>
                     </select>
                     <div id="invoice-in">
-                        <select class="form-select form-select-lg mt-2" name="clients_id">
+                        <select class="form-select form-select-lg mt-2" name="clients_id" id="clientSelect">
                             <option selected>Wybierz klienta...</option>
-                            <?php
-                            foreach($clients_by_lastname as $client_data){
-                                echo "<option value=".$client_data['client_id'].">".$client_data['lastName']." ".$client_data['firstName']."</option>";
-                            }
-                            ?>
                         </select>
                         <table class="table mt-2">
                             <thead>
