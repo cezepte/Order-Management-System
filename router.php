@@ -49,7 +49,7 @@
                         $status = $_POST['status'];
                         $insert_order = $orders->insert_order($service_id,$comment,$clients_id,$price,$vat,$status);
                         if($insert_order>0){
-                            header('Location: index.php?orderInserted=1');
+                            echo "Order inserted succefully!";
                         }
                     }
                     break;

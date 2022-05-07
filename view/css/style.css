@@ -4,17 +4,6 @@ body {
     margin: 0;
 }
 
-header {
-    background-image: url(".../assets/img/header.jpeg");
-    background-color: #fff;
-    background-repeat: no-repeat;
-    position: relative;
-    height: 826px;
-    width: 100vw;
-    /* box-shadow: 0px -50px 100px black inset; */
-    z-index: 1;
-}
-
 nav {
     height: 50px;
     width: 100vw;
@@ -67,6 +56,29 @@ nav ul li:hover {
     display: block;
 }
 
+#home {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 650px;
+    align-items: center;
+    justify-content: center;
+}
+
+#lastOrders {
+    flex: 0 0 100%;
+    width: 45%;
+    order: 1;
+    height: 600px;
+}
+
+#financeCanvas,
+#ordersCanvas {
+    flex: 0 0 50%;
+    width: 45%;
+    height: 300px;
+}
+
 .sidenav {
     float: left;
     position: fixed;
@@ -77,24 +89,15 @@ nav ul li:hover {
 }
 
 .content {
-    float: left;
     padding-left: 280px;
     width: 100%;
     padding-top: 85px;
 }
 
-#home {
-    display: flex;
-
-}
 
 .border {
     border: 1px solid lightgray;
 }
-
-/* #financeCanvas {
-
-} */
 
 .btn-toggle:hover {
     cursor: pointer;
@@ -133,27 +136,12 @@ nav ul li:hover {
     padding: 10px;
 }
 
-
 #companyName {
     text-decoration: none;
 }
 
 #sidebarToggle {
     color: white;
-}
-
-.content .row {
-    margin: 0 auto;
-    justify-content: center;
-}
-
-
-#lastOrders {
-    align-self: stretch;
-}
-
-.content .row .col-md {
-    max-width: 46%;
 }
 
 .form-check-input[type=checkbox]:indeterminate {
@@ -239,9 +227,19 @@ a.activable:hover,
 
     #home {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: column;
+        flex-wrap: nowrap;
         justify-content: flex-start;
+    }
+
+    #lastOrders {
+        width: 90%;
+        order: 1;
+    }
+
+    #financeCanvas,
+    #ordersCanvas {
+        width: 90%;
     }
 
     #hide-sidebar {

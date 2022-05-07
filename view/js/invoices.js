@@ -56,7 +56,7 @@ async function invoicePreview(invoiceId) {
                 }
             }
         }
-        xmlhttp.open('GET', 'http://localhost/iLikeMac_ajax/router.php?position=invoicesItems ');
+        xmlhttp.open('GET', 'http://localhost/iLikeMac_ajax/router.php?position=invoicesItems');
         xmlhttp.send();
         resolve('Invoice loaded to the preview window!');
     })
@@ -77,9 +77,9 @@ function invoicePreviewClose() {
     mainContainer.style.opacity = "1";
     document.getElementById('invoiceTable').innerHTML = "";
 }
-async function showInvoices() {
+function showInvoices() {
     // cleaning invoice table every time it loads to prevent it from displaying same data multiple times
-    document.getElementById('invoiceTable').innerHTML = "";
+    // document.getElementById('invoiceTable').innerHTML = "";
 
     //promise resulting in logging successfully run code to the console with then function
     let p = new Promise((resolve, reject) => {
