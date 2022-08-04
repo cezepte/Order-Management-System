@@ -3,7 +3,7 @@ function showCompanyData() {
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = () => {
             if (this.readyState == 4 && this.status == 200) {
-                const data = this.response.text;
+                const data = this.responseText;
                 const dataJson = JSON.parse(data);
                 const dataTable = dataJson[1];
                 console.log(dataTable[0]);
