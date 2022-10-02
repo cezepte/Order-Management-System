@@ -66,15 +66,6 @@
             </a>
         </li>
         <li class="nav-item m-1">
-            <a href="#" class="nav-link activable link-dark" id="parcelsToggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                </svg> Wysyłki
-            </a>
-        </li>
-        <li class="nav-item m-1">
             <a class="btn-toggle align-items-center nav-link collapsed link-dark" data-bs-toggle="collapse"
                 data-bs-target="#invoices-collapse" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt"
@@ -115,6 +106,16 @@
                                 <path
                                     d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
                             </svg> Wszystkie faktury
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link activable invoices link-dark rounded"
+                            style="margin-left: 0px; padding-left: 30px;" id="raportsToggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                            </svg> Raporty
                         </a>
                     </li>
                 </ul>
@@ -176,6 +177,60 @@
         </li>
         <li class="nav-item m-1">
             <a class="btn-toggle align-items-center nav-link collapsed link-dark" data-bs-toggle="collapse"
+                data-bs-target="#warehouse-collapse" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z" />
+                </svg> Magazyn
+            </a>
+            <div class="collapse" id="warehouse-collapse">
+                <ul class="btn-toggle-nav fw-normal small pb-1" style="list-style-type: none;">
+                    <li>
+                        <a href="#" class="nav-link activable warehouse link-dark rounded"
+                            style="margin-left: 0px; padding-left: 30px;" id="addClientToggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                            </svg> Dodaj produkt na stan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link activable warehouse link-dark rounded"
+                            style="margin-left: 0px; padding-left: 30px;" id="addContractorToggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                            </svg> Stan magazynowy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link activable warehouse link-dark rounded"
+                            style="margin-left: 0px; padding-left: 30px;" id="clientsToggle" onclick="clientList()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                            </svg> Rozchód wewnętrzny
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link activable warehouse link-dark rounded"
+                            style="margin-left: 0px; padding-left: 30px;" id="contractorsToggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                            </svg> Wydanie zewnętrzne
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item m-1">
+            <a class="btn-toggle align-items-center nav-link collapsed link-dark" data-bs-toggle="collapse"
                 data-bs-target="#services-collapse" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book"
                     viewBox="0 0 16 16">
@@ -186,7 +241,7 @@
             <div class="collapse" id="services-collapse">
                 <ul class="btn-toggle-nav fw-normal small pb-1" style="list-style-type: none;">
                     <li>
-                        <a href="#" class="nav-link activable link-dark rounded"
+                        <a href="#" class="nav-link activable services link-dark rounded"
                             style="margin-left: 0px; padding-left: 30px;" id="addServiceToggle">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-caret-right" viewBox="0 0 16 16">
@@ -196,7 +251,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link activable link-dark rounded"
+                        <a href="#" class="nav-link activable services link-dark rounded"
                             style="margin-left: 0px; padding-left: 30px;" id="allServicesToggle">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-caret-right" viewBox="0 0 16 16">
@@ -222,7 +277,7 @@
             <div class="collapse" id="settings-collapse">
                 <ul class="btn-toggle-nav fw-normal small pb-1" style="list-style-type: none;">
                     <li>
-                        <a href="#" class="nav-link activable link-dark rounded"
+                        <a href="#" class="nav-link activable link-dark rounded company"
                             style="margin-left: 0px; padding-left: 30px;" id="settingsToggle">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-caret-right" viewBox="0 0 16 16">
@@ -232,7 +287,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link activable link-dark rounded"
+                        <a href="#" class="nav-link activable link-dark rounded company"
                             style="margin-left: 0px; padding-left: 30px;" id="usersToggle">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-caret-right" viewBox="0 0 16 16">
@@ -242,7 +297,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link activable link-dark rounded"
+                        <a href="#" class="nav-link activable link-dark rounded company"
                             style="margin-left: 0px; padding-left: 30px;" id="companyDataToggle">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-caret-right" viewBox="0 0 16 16">

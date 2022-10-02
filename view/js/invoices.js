@@ -8,20 +8,25 @@ async function sleep(time = 1) {
         }, sleepMilliseconds)
     })
 }
-function invoiceTypeChange() {
-    const type = document.getElementById('invoiceType').value;
-    switch (type) {
-        case 'in':
-            document.getElementById('invoice-out').style.display = "none";
-            document.getElementById('invoice-in').style.display = "block";
-            break;
-        case 'out':
-            document.getElementById('invoice-in').style.display = "none";
-            document.getElementById('invoice-out').style.display = "block";
-            break;
-    }
+function invoicePreview(invoiceId) {
+    let p = new Promise((resolve, reject) => {
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                const content = document.getElementById('popup-window');
+                content.innerHTML = this.responseText;
+            }
+        }
+        xmlhttp.open('GET', 'view/invoices/invoicePreview.html');
+        xmlhttp.send();
+        resolve('Invoice preview loaded successfully!');
+    })
+    p.then((message) => {
+        invoicePreviewFill(invoiceId);
+        console.log(message);
+    })
 }
-async function invoicePreview(invoiceId) {
+async function invoicePreviewFill(invoiceId) {
     console.log(invoiceId); // checking if proper invoice id is provided to the function
     let p = new Promise((resolve, reject) => {
         const xmlhttp = new XMLHttpRequest();
@@ -58,7 +63,7 @@ async function invoicePreview(invoiceId) {
         }
         xmlhttp.open('GET', 'http://localhost/iLikeMac_ajax/router.php?position=invoicesItems');
         xmlhttp.send();
-        resolve('Invoice loaded to the preview window!');
+        resolve('Invoice filled to the preview window!');
     })
     p.then((message) => {
         console.log(message);
@@ -75,7 +80,7 @@ function invoicePreviewClose() {
     topnav.style.opacity = "1";
     sidebar.style.opacity = "1";
     mainContainer.style.opacity = "1";
-    document.getElementById('invoiceTable').innerHTML = "";
+    document.getElementById('popup-window').innerHTML = "";
 }
 function showInvoices() {
     // cleaning invoice table every time it loads to prevent it from displaying same data multiple times
@@ -126,7 +131,7 @@ function showInvoices() {
                     invoiceTable.appendChild(line);
                     line = document.createElement('tr');
                 });
-                document.getElementById('invoicesAll').append(invoiceTable);
+                document.getElementById('invoicesTableContainer').append(invoiceTable);
             }
         }
         request.open('GET', 'http://localhost/iLikeMac_ajax/router.php?position=invoicesAll');
@@ -173,3 +178,4 @@ function invoiceNewPosition(n) {
     positionList.appendChild(line);
     return n;
 }
+

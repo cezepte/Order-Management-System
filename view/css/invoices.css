@@ -1,0 +1,17 @@
+#invoicePreview,
+#invoicePreviewContainer,
+#orderInfo {
+    opacity: 1;
+    margin: 0 auto;
+}
+
+#invoicePreviewContainer {
+    z-index: 1002;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+}
+
+#invoicePreview {
+    width: 80%;
+}

@@ -11,9 +11,10 @@
                         <option value="out">wychodząca</option>
                     </select>
                     <div id="invoice-in">
-                        <select class="form-select form-select-lg mt-2" name="clients_id" id="clientSelect">
+                        <select class="form-select form-select-lg mt-2 clientsList" name="clients_id" id="clientSelect">
                             <option selected>Wybierz klienta...</option>
                         </select>
+                        <input type="date" name="invoiceIssued" id="invoiceIssued">
                         <table class="table mt-2">
                             <thead>
                                 <tr>
@@ -44,12 +45,13 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <a type="button" class="btn btn-success" id="addPosition">Dodaj pozycję...</a>
+                        <button type="button" class="btn btn-success" id="addPosition">Dodaj pozycję...</button>
                     </div>
                     <div id="invoice-out" style="display:none">
                         invoice out
                     </div>
-                    <button type="submit" class="btn btn-success btn-lg mt-3" style="padding-left: 25%; padding-right: 25%;">Dodaj</button>
+                    <button type="submit" class="btn btn-success btn-lg mt-3"
+                        style="padding-left: 25%; padding-right: 25%;">Dodaj</button>
                 </form>
             </div>
         </div>

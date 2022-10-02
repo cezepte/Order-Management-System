@@ -1,5 +1,5 @@
 <?php
-include '../model/database.php';
+// include '../model/database.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,6 @@ include '../model/database.php';
         $user = $_POST['dbUserName'];
         $pass = $_POST['dbPass'];
         $db = $_POST['dbName'];
-
         $dsn = "mysql:host=".$host.";dbname=".$db;
         try{
             $conn = new PDO ($dsn, $user, $pass);

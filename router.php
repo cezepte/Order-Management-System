@@ -1,7 +1,13 @@
 <?php
     require('model/database.php');
         // if(isset($_COOKIE['login'])){
-            $request = $_REQUEST['position'];
+            // if(isset($_REQUEST['position'])){
+            $position = $_REQUEST['position'];
+            // }else if(isset($_POST['position'])){
+            //     $position = $_POST['position'];
+            // }else {
+            //     $position = "";
+            // }
             include 'model/finance_db.php';
             include 'model/orders_db.php';
             include 'model/clients_db.php';
@@ -14,7 +20,7 @@
             $clients = new Clients();
             $company = new Company();
             $services = new Services();
-            switch($request){
+            switch($position){
                 case "income":
                     $income = 0;
                     $outcome = 0;
@@ -34,10 +40,10 @@
                     $orders_by_id = json_encode($orders_by_id_db);
                     echo $orders_by_id;
                     break;
-                case "ordersLast3":
-                    $orders_last_3_db = $orders->select_orders_last_3();
-                    $orders_last_3 = json_encode($orders_last_3);
-                    echo $orders_last_3;
+                case "ordersHome":
+                    $orders_home_db = $orders->select_orders_home();
+                    $orders_home = json_encode($orders_home_db);
+                    echo $orders_home;
                     break;
                 case "orderInsert":
                     if(isset($_POST['insertOrder'])){
@@ -47,14 +53,21 @@
                         $price = (int)$_POST['price'];
                         $vat = (int)$_POST['vat'];
                         $status = $_POST['status'];
+                        var_dump($service_id, $comment, $clients_id, $price, $vat, $status);
                         $insert_order = $orders->insert_order($service_id,$comment,$clients_id,$price,$vat,$status);
                         if($insert_order>0){
                             echo "Order inserted succefully!";
                         }
                     }
                     break;
+                case "orderSelectSingleId":
+                    $id = $_REQUEST['id'];
+                    $order_single_db = $orders->select_order_single_by_id($id);
+                    $order_single = json_encode($order_single_db);
+                    echo $order_single;
+                    break;
                 case "orderModify":
-                    if(isset($_POST['modifyOrder'])){
+                    if(isset($_POST['orderModify'])){
                         $service_id = $_POST['orderType'];
                         $comment = $_POST['orderComment'];
                         $netto_price = $_POST['orderPriceNetto'];
@@ -92,7 +105,13 @@
                     $clients_by_id = json_encode($clients_by_id_db);
                     echo $clients_by_id;
                     break;
+                case "clientsList":
+                    $clients_by_id_db = $clients->select_all_clients_name_id();
+                    $clients_by_id = json_encode($clients_by_id_db);
+                    echo $clients_by_id;
+                    break;
                 case "clientsInsert":
+                    var_dump($_POST);
                     if(isset($_POST['insertClient'])){
                         $firstName = $_POST['firstName'];
                         $lastName = $_POST['lastName'];
@@ -100,6 +119,7 @@
                         $tin = $_POST['tin'];
                         $tel_number = $_POST['tel_number'];
                         $email = $_POST['email'];
+                        var_dump($firstName, $lastName, $company, $tin, $tel_number, $email);
                         $client_insert = $clients->insert_new_client($firstName, $lastName, $company, $tin, $tel_number, $email);
                         if($client_insert>0){
                             header('Location: index.php?clientInserted=1');
@@ -125,6 +145,19 @@
                     $all_services_db = $services->select_all_services();
                     $all_services = json_encode($all_services_db);
                     echo $all_services;
+                    break;
+                case "servicesInsert":
+                    var_dump($_POST);
+                    if(isset($_POST['serviceName'])){
+                        $service_name = $_POST['serviceName'];
+                        $service_comment = $_POST['serviceComment'];
+                        $service_vat = intval($_POST['serviceVat']);
+                        $insert_service = $services->insert_new_service($service_name,$service_comment,$service_vat);
+                        var_dump($insert_service);
+                        if($insert_service) {
+                            echo 'Service inserted';
+                        }
+                    }
                     break;
                 case "invoicesInsert":
                     if (isset($_POST['invoiceType'])){
@@ -154,7 +187,7 @@
                 setcookie('login',null,-1,'/');
             }
         // }else{
-        //     include 'view/loginForm.php';
+        //     header('Location: view/loginForm.html');
         // }
 
 ?>

@@ -4,6 +4,20 @@ body {
     margin: 0;
 }
 
+.ajax-load {
+    display: none;
+    background-color: antiquewhite;
+    opacity: 0.7;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+#logoTobBar {
+    margin-right: 20px;
+}
+
 nav {
     height: 50px;
     width: 100vw;
@@ -56,6 +70,10 @@ nav ul li:hover {
     display: block;
 }
 
+.addOrderBox {
+    width: 50%;
+}
+
 #home {
     display: flex;
     flex-wrap: wrap;
@@ -63,11 +81,11 @@ nav ul li:hover {
     height: 650px;
     align-items: center;
     justify-content: center;
+
 }
 
 #lastOrders {
     flex: 0 0 100%;
-    width: 45%;
     order: 1;
     height: 600px;
 }
@@ -75,7 +93,7 @@ nav ul li:hover {
 #financeCanvas,
 #ordersCanvas {
     flex: 0 0 50%;
-    width: 45%;
+    width: 48%;
     height: 300px;
 }
 
@@ -93,7 +111,6 @@ nav ul li:hover {
     width: 100%;
     padding-top: 85px;
 }
-
 
 .border {
     border: 1px solid lightgray;
@@ -132,7 +149,7 @@ nav ul li:hover {
     justify-content: space-between;
     align-items: baseline;
     padding: auto;
-    z-index: 9999;
+    z-index: 9998;
     padding: 10px;
 }
 
@@ -187,6 +204,39 @@ a.activable:hover,
 #orderPreviewContainer,
 #invoicePreviewContainer {
     display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    .sidenav {
+        max-width: 200px;
+    }
+
+    .content {
+        padding-left: 200px;
+    }
+
+    #home {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-bottom: 50px;
+    }
+
+    #lastOrders {
+        width: 90%;
+        order: 1;
+    }
+
+    #financeCanvas,
+    #ordersCanvas {
+        width: 90%;
+    }
+
+    .addOrderBox {
+        width: 90%;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -245,4 +295,10 @@ a.activable:hover,
     #hide-sidebar {
         align-self: flex-end;
     }
+
+    .addOrderBox {
+        width: 90%;
+    }
 }
+
+#popup-window

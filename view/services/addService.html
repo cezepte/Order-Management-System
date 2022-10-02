@@ -4,27 +4,24 @@
         <div class="col-md-6">
             <div class="content-box m-0 border shadow rounded bg-white text-center p-5 mt-5 w-100">
                 <h1>Dodaj usługę</h1>
-                <form action="addServiceBack.php" method="post" class="mt-5">
-                    <!-- <select class="form-select form-select-lg mt-5" name="type">
-                        <option selected value="naprawa">Naprawa</option>
-                        <option value="instalacja">Instalacja</option>
-                        <option value="czyszczenie">Czyszczenie</option>
-                        <option value="doradztwo">Doradztwo</option>
-                        <option value="zakup">Zakup</option>
-                    </select> -->
+                <form action="#" class="mt-5" name="addServiceForm" id="addServiceForm">
                     <div class="form-floating mt-2">
-                        <input type="text" name="serviceName" id="serviceName" placeholder="Nazwa usługi" class="form-control" required>
+                        <input type="text" name="serviceName" id="serviceName" placeholder="Nazwa usługi"
+                            class="form-control" required>
                         <label for="serviceName">Nazwa usługi</label>
                     </div>
                     <div class="form-floating mt-2">
-                        <textarea class="form-control" name="description" id="description" cols="65" rows="8" placeholder="Opis usługi"></textarea>
+                        <textarea class="form-control" name="serviceComment" id="serviceComment" cols="65" rows="8"
+                            placeholder="Opis usługi"></textarea>
                         <label for="description">Opis usługi</label>
                     </div>
                     <div class="form-floating mt-2">
-                        <input type="number" name="vat" id="vat" placeholder="Podatek VAT" class="form-control" required>
+                        <input type="number" name="serviceVat" id="serviceVat" placeholder="Podatek VAT"
+                            class="form-control" required>
                         <label for="price">Podatek VAT</label>
                     </div>
-                    <button type="submit" class="btn btn-success btn-lg mt-3" style="padding-left: 25%; padding-right: 25%;">Dodaj</button>
+                    <button type="button" class="btn btn-success btn-lg mt-3" id="submitService"
+                        style="padding-left: 25%; padding-right: 25%;">Dodaj</button>
                 </form>
             </div>
         </div>
